@@ -29,6 +29,12 @@ class PetAdapter(
         val txtAge = row.findViewById<TextView>(R.id.txtAge)
         val txtSkill = row.findViewById<TextView>(R.id.txtSkill)
 
+        txtName.text = data.name
+        val age = 2021 - data.birthYear + 1
+        txtAge.text = "(${age}세)"
+        txtSkill.text = data.skill
+
+        return row
 
     }
 
