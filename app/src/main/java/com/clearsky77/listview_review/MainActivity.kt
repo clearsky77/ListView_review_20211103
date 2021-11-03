@@ -1,8 +1,11 @@
 package com.clearsky77.listview_review
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AlertDialogLayout
 import com.clearsky77.listview_review.adapters.PetAdapter
 import com.clearsky77.listview_review.datas.PetData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,5 +31,21 @@ class MainActivity : AppCompatActivity() {
 
         mPetAdapter = PetAdapter(this, R.layout.pet_list_item, mPetList)
         petListView.adapter = mPetAdapter
+
+//        길게 누르면 삭제
+        petListView.setOnItemLongClickListener { adapterView, view, position, l ->
+            val longClickedPet = mPetList[position]
+            // 경고창 띄위기
+            val alert = AlertDialog.Builder(this)
+            alert.setMessage("정말 ${longClickedPet.name}의 정보를 제거하시겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
+                mPetAdapter.remove(longClickedPet)
+                mPetAdapter.notifyDataSetChanged()
+            })
+            alert.setNegativeButton("취소",null)
+            alert.show()
+            return@setOnItemLongClickListener true
+        }
+
     }
 }
