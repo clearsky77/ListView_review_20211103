@@ -1,10 +1,12 @@
 package com.clearsky77.listview_review.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.clearsky77.listview_review.R
 import com.clearsky77.listview_review.datas.PetData
@@ -28,11 +30,16 @@ class PetAdapter(
         val txtName = row.findViewById<TextView>(R.id.txtName)
         val txtAge = row.findViewById<TextView>(R.id.txtAge)
         val txtSkill = row.findViewById<TextView>(R.id.txtSkill)
+        val linearRow = row.findViewById<LinearLayout>(R.id.LinearRow)
 
         txtName.text = data.name
         val age = 2021 - data.birthYear + 1
         txtAge.text = "(${age}세)"
         txtSkill.text = data.skill
+
+        if(position % 2 == 0){
+            linearRow.setBackgroundColor( Color.parseColor("#E1D5F4"))
+        }
 
         return row
 

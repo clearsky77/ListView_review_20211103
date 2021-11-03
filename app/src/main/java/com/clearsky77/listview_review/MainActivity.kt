@@ -19,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         mPetList.add(PetData("냐냐루", 2020, "솜방망이 펀치"))
         mPetList.add(PetData("냥냐냥", 2019, "물건 떨어트리기"))
         mPetList.add(PetData("리터봇", 2018, "뒷정리"))
+        mPetList.add(PetData("리터봇", 2018, "뒷정리"))
+        mPetList.add(PetData("리터봇", 2018, "뒷정리"))
+        mPetList.add(PetData("리터봇", 2018, "뒷정리"))
+        mPetList.add(PetData("리터봇", 2018, "뒷정리"))
+        mPetList.add(PetData("리터봇", 2018, "뒷정리"))
+        mPetList.add(PetData("리터봇", 2018, "뒷정리"))
 
         mPetAdapter = PetAdapter(this, R.layout.pet_list_item, mPetList)
         petListView.adapter = mPetAdapter
